@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pl.edu.ug.aib.firstApp.data.Person;
+import pl.edu.ug.aib.firstApp.data.PhoneBook;
 import pl.edu.ug.aib.firstApp.itemView.PersonItemView;
 import pl.edu.ug.aib.firstApp.itemView.PersonItemView_;
 
@@ -24,8 +25,7 @@ public class PersonListAdapter extends BaseAdapter {
     List<Person> persons = new ArrayList<Person>();
 
     public PersonListAdapter() {
-        persons.add(new Person("Ala Guć", "Drutex"));
-        persons.add(new Person("Stefan But", "Uniwersytet Gdański"));
+
     }
 
     @Override
@@ -57,5 +57,11 @@ public class PersonListAdapter extends BaseAdapter {
 
         return personItemView;
     }
+    public void update(PhoneBook phoneBook) {
+        persons.clear();
+        persons.addAll(phoneBook.records);
+        notifyDataSetChanged();
+    }
+
 
 }
